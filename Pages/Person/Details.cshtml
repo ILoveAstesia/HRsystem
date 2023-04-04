@@ -1,0 +1,43 @@
+﻿@page "{id:int}"
+@model HRsystem.Pages.AdminPersonUi.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PersonBasicInfo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Sex)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Sex)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Age)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PersonBasicInfo?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

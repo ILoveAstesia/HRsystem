@@ -1,0 +1,98 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <!-- <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+</div>
+
+
+
+<!--    
+
+    <div>
+        <form method="post">
+            <div>
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+-->
+
+
+<div class="w-50 container">
+    <form method="post">
+
+        <div class="form-outline mb-4 ">
+            <label class="form-label" asp-for="LoginData.Id">用户名:</label>
+            <input class="form-control" asp-for="LoginData.Id" value="" />
+            <span asp-validation-for="LoginData.Id"></span>
+        </div>
+        <div class="form-outline mb-4 ">
+            <label class="form-label" asp-for="LoginData.Password">密码:</label>
+            <input class="form-control" asp-for="LoginData.Password" type="password" />
+            <span asp-validation-for="LoginData.Password"></span>
+        </div>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div>@Model.ErrorMessage</div>
+            }
+
+        <button type="button" class="btn container btn-primary btn-block mb-4">登录</button>
+
+    
+    </form>
+</div>
+
+<!--
+<div class="w-50 container">
+    <form>
+
+        <div class="form-outline mb-4 ">
+            <label class="form-label" for="form2Example1">PersonId</label>
+            <input type="text" id="id" class="form-control" />
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Password</label>
+            <input type="password" id="psw" class="form-control" />
+        </div>
+
+
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+            </div>
+
+            <div class="col">
+   
+                <a href="#!">Forgot password?</a>
+            </div>
+        </div>
+
+ 
+        <button type="button" class="btn container btn-primary btn-block mb-4">Sign in</button>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+
+        <div class="text-center">
+            <p>Not a member? <a class="link-info" asp-area="" asp-page="/Identity/Create">Register</a></p>
+        </div>
+    </form>
+</div>
+-->

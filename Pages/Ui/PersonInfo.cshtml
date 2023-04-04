@@ -1,0 +1,35 @@
+﻿@page
+@model HRsystem.Pages.Ui.PersonInfoModel
+@{
+}
+
+<div>
+    <h4>PersonBasicInfo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Sex)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Sex)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Age)
+        </dd>
+    </dl>
+</div>
