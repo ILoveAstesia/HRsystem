@@ -1,12 +1,6 @@
-﻿using HRsystem.Models;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Reflection.Emit;
-using System.Security.Claims;
 
 namespace HRsystem.Pages
 {
@@ -23,25 +17,10 @@ namespace HRsystem.Pages
             LoginData ??= new LoginModel();
             _context = context;
         }
-        /*
-        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public IndexModel(SignInManager<IdentityUser> signInManager)
-        {
-            _signInManager = signInManager;
-        }
-
-        */
         public string? ErrorMessage { get; set; }
         [BindProperty]
         public LoginModel LoginData { get; set; }
-        /*       
-        [BindProperty]
-        public int Id { get; set; }
-
-        [BindProperty]
-        public string Password { get; set; }
-        */
 
         public void OnGet()
         {
@@ -62,7 +41,7 @@ namespace HRsystem.Pages
         */
         public async Task<IActionResult> OnPostAsync()
         {
-            ErrorMessage = "系统账号为空";
+            //ErrorMessage = "系统账号为空";
             // 验证用户名和密码
             if (_context.AccountInfo == null || LoginData==null)
             {

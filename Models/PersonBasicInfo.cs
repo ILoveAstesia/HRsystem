@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-namespace HRsystem.Models
+﻿namespace HRsystem.Models
 {
     public class PersonBasicInfo
     {

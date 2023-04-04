@@ -1,5 +1,4 @@
-﻿using System;
-namespace HRsystem.Models
+﻿namespace HRsystem.Models
 {
     public class AccountInfo
     {

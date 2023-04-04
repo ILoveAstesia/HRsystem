@@ -22,78 +22,14 @@ namespace HRsystem.Models
             }
 
             context.PersonBasicInfo.AddRange(
-                new PersonBasicInfo
-                {
-                    Id=202001,
-                    Name = "one",
-                    Sex = 'M',
-                    Age = 1,
-                    Department = "DepartmentOne"
-
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202002,
-                    Name = "one",
-                    Sex = 'M',
-                    Age = 1,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202003,
-                    Name = "one",
-                    Sex = 'M',
-                    Age = 1,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202004,
-                    Name = "one",
-                    Sex = 'M',
-                    Age = 21,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202005,
-                    Name = "five",
-                    Sex = 'M',
-                    Age = 18,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202006,
-                    Name = "two",
-                    Sex = 'M',
-                    Age = 1,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202007,
-                    Name = "one",
-                    Sex = 'F',
-                    Age = 1,
-                    Department = "DepartmentOne"
-                },
-
-                new PersonBasicInfo
-                {
-                    Id = 202008,
-                    Name = "one",
-                    Sex = 'M',
-                    Age = 1,
-                    Department = "DepartmentTwo"
-                }
+                new PersonBasicInfo { Id = 202001, Name = "one", Sex = 'M', Age = 18, Department = "DepartmentOne" },
+                new PersonBasicInfo { Id = 202002, Name = "one", Sex = 'F', Age = 19, Department = "DepartmentTwo" },
+                new PersonBasicInfo { Id = 202003, Name = "one", Sex = 'M', Age = 20, Department = "DepartmentOne" },
+                new PersonBasicInfo { Id = 202004, Name = "one", Sex = 'M', Age = 18, Department = "DepartmentTwo" },
+                new PersonBasicInfo { Id = 202005, Name = "two", Sex = 'M', Age = 19, Department = "DepartmentOne" },
+                new PersonBasicInfo { Id = 202006, Name = "two", Sex = 'F', Age = 20, Department = "DepartmentTwo" },
+                new PersonBasicInfo { Id = 202007, Name = "two", Sex = 'M', Age = 21, Department = "DepartmentOne" },
+                new PersonBasicInfo { Id = 202008, Name = "two", Sex = 'M', Age = 22, Department = "DepartmentTwo" }
             );
             context.SaveChanges();
             context.SalaryInfo.AddRange(
