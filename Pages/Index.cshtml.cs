@@ -51,7 +51,7 @@ namespace HRsystem.Pages
             }
 
             var account = await _context.AccountInfo
-                .Where(a => a.AccountInfoId == LoginData.Id && a.Password == LoginData.Password)
+                .Where(a => a.Id == LoginData.Id && a.Password == LoginData.Password)
                 .FirstOrDefaultAsync();
 
             if (account != null)

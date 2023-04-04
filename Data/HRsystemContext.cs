@@ -32,7 +32,7 @@ namespace HRsystem.Data
                 .ValueGeneratedNever();
 
             modelBuilder.Entity<AccountInfo>()
-                .Property(b => b.AccountInfoId)
+                .Property(b => b.Id)
                 .ValueGeneratedNever();
         }
     }

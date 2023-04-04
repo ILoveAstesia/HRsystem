@@ -44,14 +44,14 @@ namespace HRsystem.Models
             );
             context.SaveChanges();
             context.AccountInfo.AddRange(
-                new AccountInfo { AccountInfoId = 202001, Password = "1", Autority = 1 },
-                new AccountInfo { AccountInfoId = 202002, Password = "2", Autority = 2 },
-                new AccountInfo { AccountInfoId = 202003, Password = "3", Autority = 2 },
-                new AccountInfo { AccountInfoId = 202004, Password = "4", Autority = 2 },
-                new AccountInfo { AccountInfoId = 202005, Password = "5", Autority = 2 },
-                new AccountInfo { AccountInfoId = 202006, Password = "6", Autority = 2 },
-                new AccountInfo { AccountInfoId = 202007, Password = "7", Autority = 3 },
-                new AccountInfo { AccountInfoId = 202008, Password = "1324", Autority = 0 }
+                new AccountInfo { Id = 202001, Password = "1", Autority = 1 },
+                new AccountInfo { Id = 202002, Password = "2", Autority = 2 },
+                new AccountInfo { Id = 202003, Password = "3", Autority = 2 },
+                new AccountInfo { Id = 202004, Password = "4", Autority = 2 },
+                new AccountInfo { Id = 202005, Password = "5", Autority = 2 },
+                new AccountInfo { Id = 202006, Password = "6", Autority = 2 },
+                new AccountInfo { Id = 202007, Password = "7", Autority = 3 },
+                new AccountInfo { Id = 202008, Password = "1324", Autority = 0 }
             );
 
             context.SaveChanges();

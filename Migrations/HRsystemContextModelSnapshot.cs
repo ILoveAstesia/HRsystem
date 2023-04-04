@@ -23,7 +23,7 @@ namespace HRsystem.Migrations
 
             modelBuilder.Entity("HRsystem.Models.AccountInfo", b =>
                 {
-                    b.Property<int>("AccountInfoId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Autority")
@@ -33,7 +33,7 @@ namespace HRsystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AccountInfoId");
+                    b.HasKey("Id");
 
                     b.ToTable("AccountInfo");
                 });

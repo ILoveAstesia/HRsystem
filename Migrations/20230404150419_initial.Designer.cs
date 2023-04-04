@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HRsystem.Migrations
 {
     [DbContext(typeof(HRsystemContext))]
-    [Migration("20230404135909_first")]
-    partial class first
+    [Migration("20230404150419_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,7 +25,7 @@ namespace HRsystem.Migrations
 
             modelBuilder.Entity("HRsystem.Models.AccountInfo", b =>
                 {
-                    b.Property<int>("AccountInfoId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Autority")
@@ -35,7 +35,7 @@ namespace HRsystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AccountInfoId");
+                    b.HasKey("Id");
 
                     b.ToTable("AccountInfo");
                 });

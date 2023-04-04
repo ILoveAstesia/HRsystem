@@ -29,7 +29,7 @@ namespace HRsystem.Pages.Identity
                 return NotFound();
             }
 
-            var accountinfo = await _context.AccountInfo.FirstOrDefaultAsync(m => m.AccountInfoId == id);
+            var accountinfo = await _context.AccountInfo.FirstOrDefaultAsync(m => m.Id == id);
 
             if (accountinfo == null)
             {

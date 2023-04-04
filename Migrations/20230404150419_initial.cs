@@ -4,7 +4,7 @@
 
 namespace HRsystem.Migrations
 {
-    public partial class first : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,13 +12,13 @@ namespace HRsystem.Migrations
                 name: "AccountInfo",
                 columns: table => new
                 {
-                    AccountInfoId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Autority = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AccountInfo", x => x.AccountInfoId);
+                    table.PrimaryKey("PK_AccountInfo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

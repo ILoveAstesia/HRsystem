@@ -30,7 +30,7 @@ namespace HRsystem.Pages.Identity
                 return NotFound();
             }
 
-            var accountinfo =  await _context.AccountInfo.FirstOrDefaultAsync(m => m.AccountInfoId == id);
+            var accountinfo =  await _context.AccountInfo.FirstOrDefaultAsync(m => m.Id == id);
             if (accountinfo == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace HRsystem.Pages.Identity
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AccountInfoExists(AccountInfo.AccountInfoId))
+                if (!AccountInfoExists(AccountInfo.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace HRsystem.Pages.Identity
 
         private bool AccountInfoExists(int id)
         {
-          return (_context.AccountInfo?.Any(e => e.AccountInfoId == id)).GetValueOrDefault();
+          return (_context.AccountInfo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
