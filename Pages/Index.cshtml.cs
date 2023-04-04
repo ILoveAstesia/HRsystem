@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace HRsystem.Pages
 {
@@ -43,10 +44,18 @@ namespace HRsystem.Pages
                 .Where(a => a.Id == LoginData.Id && a.Password == LoginData.Password)
                 .FirstOrDefaultAsync();
 
+
+
             if (account != null)
             {
+               int aut = account.Autority;
                 // 如果验证成功，重定向到受保护的页面
-                return RedirectToPage("/Identity/Index");
+                if (aut==0)
+                { return RedirectToPage("/Identity/Index"); }
+                else if(aut ==1)
+                { return RedirectToPage("/Salary/Index"); }
+                return RedirectToPage("/Person/Details?id=202002");
+                return RedirectToPage("/Person/Details/" + account.Id);
             }
             else
             {
