@@ -14,7 +14,7 @@ namespace HRsystem.Pages
         }
         public IndexModel(HRsystem.Data.HRsystemContext context)
         {
-            LoginData ??= new LoginModel();
+            //LoginData ??= new LoginModel();
             _context = context;
         }
 
@@ -24,28 +24,17 @@ namespace HRsystem.Pages
 
         public void OnGet()
         {
-            ErrorMessage = "Ok";
+            ErrorMessage = "Testing";
         }
-        /*
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var user = await _context.AccountInfo.FirstOrDefaultAsync(m => m.Id == Id);
-
-            if (user == null || user.Password != Password)
-            {
-                return Content("<script>alert('Invalid ID or password.');window.location.href='/';</script>", "text/html");
-            }
-
-            return RedirectToPage("/Identity/Index");
-        }
-        */
+        
         public async Task<IActionResult> OnPostAsync()
         {
             //ErrorMessage = "系统账号为空";
+            //return Content("<script>alert('Invalid ID or password.');window.location.href='/';</script>", "text/html");
+            
             // 验证用户名和密码
             if (_context.AccountInfo == null || LoginData==null)
             {
-                //return Content("<script>alert('Invalid ID or password.');window.location.href='/';</script>", "text/html");
                 ErrorMessage = "系统账号为空";
                 return Page();
             }
