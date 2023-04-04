@@ -54,6 +54,7 @@ namespace HRsystem.Pages
                 { return RedirectToPage("/Identity/Index"); }
                 else if(aut ==1)
                 { return RedirectToPage("/Salary/Index"); }
+                return RedirectToPage("/Person/Details", new { id = account.Id });
                 return RedirectToPage("/Person/Details?id=202002");
                 return RedirectToPage("/Person/Details/" + account.Id);
             }
