@@ -14,8 +14,8 @@ namespace HRsystem.Pages
         }
         public IndexModel(HRsystem.Data.HRsystemContext context)
         {
-            //LoginData ??= new LoginModel();
             _context = context;
+            LoginData ??= new LoginModel();
         }
 
         public string? ErrorMessage { get; set; }
