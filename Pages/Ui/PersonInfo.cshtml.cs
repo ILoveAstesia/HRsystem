@@ -20,8 +20,8 @@ namespace HRsystem.Pages.Ui
         public string? ErrorMassage { get; set; }
         public PersonBasicInfo PersonBasicInfo { get; set; } = default!;
         public SalaryInfo SalaryInfo { get; set; } = default!;
-
         public DepartmentInfo DepartmentInfo { get; set; }
+        public IList<RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
         //find personbasicinfo from coocike nameidentifier
         public async Task<IActionResult> OnGetAsync(/*int id*/)
         {
@@ -48,6 +48,8 @@ namespace HRsystem.Pages.Ui
             PersonBasicInfo = personbasicinfo;
             SalaryInfo = salaryinfo;
             DepartmentInfo = departmentinfo;
+
+
 
             return Page();
         }
