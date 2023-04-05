@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace HRsystem.Migrations
 {
-    public partial class modify_department_element_of_person : Migration
+    public partial class rap_add : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,6 +33,22 @@ namespace HRsystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DepartmentInfo", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RewardingAndPunishmentInfo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PrincipalId = table.Column<int>(type: "int", nullable: false),
+                    PersonId = table.Column<int>(type: "int", nullable: false),
+                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Detail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RewardingAndPunishmentInfo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,6 +98,9 @@ namespace HRsystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "PersonBasicInfo");
+
+            migrationBuilder.DropTable(
+                name: "RewardingAndPunishmentInfo");
 
             migrationBuilder.DropTable(
                 name: "SalaryInfo");

@@ -15,17 +15,20 @@ namespace HRsystem.Pages.Ui
         public PersonInfoModel(HRsystem.Data.HRsystemContext context)
         {
             _context = context;
+            DepartmentInfo = default!;
         }
 
         public string? ErrorMassage { get; set; }
         public PersonBasicInfo PersonBasicInfo { get; set; } = default!;
         public SalaryInfo SalaryInfo { get; set; } = default!;
+        public AccountInfo AccountInfo { get; set; } = default!;
         public DepartmentInfo DepartmentInfo { get; set; }
         public IList<RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
         //find personbasicinfo from coocike nameidentifier
         public async Task<IActionResult> OnGetAsync(/*int id*/)
         {
-            if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value == null ) {
+            if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value == null)
+            {
                 ErrorMassage = "NameIdentifier is null Please Login in";
                 return Page();
             }

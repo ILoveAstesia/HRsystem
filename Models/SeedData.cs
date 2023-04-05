@@ -62,6 +62,21 @@ namespace HRsystem.Models
             );
             
             context.SaveChanges();
+
+            context.RewardingAndPunishmentInfo.AddRange(
+                new RewardingAndPunishmentInfo { PersonId = 202008, PrincipalId = 202001, Detail = "RewardTest", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202008, PrincipalId = 202001, Detail = "PunishmentTest", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202001, PrincipalId = 202001, Detail = "Repeat1", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202002, PrincipalId = 202001, Detail = "Repeat2", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202003, PrincipalId = 202001, Detail = "Repeat3", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202004, PrincipalId = 202001, Detail = "Repeat4", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202005, PrincipalId = 202001, Detail = "Repeat5", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202006, PrincipalId = 202001, Detail = "Repeat6", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202002, PrincipalId = 202001, Detail = "Repeat1", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202003, PrincipalId = 202001, Detail = "Repeat1", ReleaseDate = DateTime.Now },
+                new RewardingAndPunishmentInfo { PersonId = 202001, PrincipalId = 202001, Detail = "RewardTest", ReleaseDate = DateTime.Now }
+                );
+            context.SaveChanges();
             /*
             */
         }
