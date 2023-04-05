@@ -92,7 +92,7 @@
                     @Html.DisplayNameFor(model => model.RewardingAndPunishmentInfo[0].Id)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.RewardingAndPunishmentInfo[0].PersonId)
+                    @Html.DisplayNameFor(model => model.RewardingAndPunishmentInfo[0].PrincipalId)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.RewardingAndPunishmentInfo[0].Detail)
@@ -108,20 +108,53 @@
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PersonId)
+                        @Html.DisplayFor(modelItem => item.PrincipalId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Detail)
                     </td>
-                    <!--
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <!--
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
                     -->
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<br />
+
+
+<div class="border container">
+    TrainingInfo
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrainingInfo[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrainingInfo[0].Detail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TrainingInfo)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Detail)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>>

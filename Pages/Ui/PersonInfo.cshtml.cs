@@ -24,6 +24,8 @@ namespace HRsystem.Pages.Ui
         public AccountInfo AccountInfo { get; set; } = default!;
         public DepartmentInfo DepartmentInfo { get; set; }
         public IList<RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
+        public IList<TrainingInfo> TrainingInfo { get; set; } = default!;
+        
         //find personbasicinfo from coocike nameidentifier
         public async Task<IActionResult> OnGetAsync(/*int id*/)
         {
@@ -55,6 +57,13 @@ namespace HRsystem.Pages.Ui
             if (_context.RewardingAndPunishmentInfo != null)
             {
                 RewardingAndPunishmentInfo = await _context.RewardingAndPunishmentInfo
+                    .Where(r => r.PersonId == id)
+                    .ToListAsync();
+            }
+
+            if (_context.TrainingInfo != null)
+            {
+                TrainingInfo = await _context.TrainingInfo
                     .Where(r => r.PersonId == id)
                     .ToListAsync();
             }

@@ -31,6 +31,7 @@
   <ItemGroup>
     <Folder Include="Pages\Person\PAR\" />
     <Folder Include="Pages\Person\Trainning\" />
+    <Folder Include="Pages\RewardingAndPunishment\" />
   </ItemGroup>
 
 </Project>
