@@ -19,10 +19,16 @@
             @Html.DisplayFor(model => model.PersonBasicInfo.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department)
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department.Id)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PersonBasicInfo.Department)
+            @Html.DisplayFor(model => model.PersonBasicInfo.Department.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonBasicInfo.Department.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PersonBasicInfo.Sex)
