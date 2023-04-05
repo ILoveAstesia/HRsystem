@@ -9,7 +9,7 @@ using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace HRsystem.Pages.AdminPersonUi
+namespace HRsystem.Pages.Person
 {
     public class IndexModel : PageModel
     {
