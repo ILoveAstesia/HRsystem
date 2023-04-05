@@ -15,7 +15,7 @@ builder.Services.AddDbContext<HRsystemContext>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Account/Login";
+        options.LoginPath = "/Index";
         options.LogoutPath = "/Account/Logout";
         options.AccessDeniedPath = "/Account/AccessDenied";
     });
@@ -25,6 +25,11 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AdminOnly", policy =>
         policy.RequireAssertion(context =>
             context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
+
+    options.AddPolicy("AdminLest", policy =>
+    policy.RequireAssertion(context =>
+        context.User.HasClaim(c => c.Type == "Authority" && (c.Value == "1" || c.Value == "0"))));
+
 });
 
 var app = builder.Build();

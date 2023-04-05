@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
+using System.Security.Claims;
 
 namespace HRsystem.Pages.Identity
 {
@@ -19,10 +20,24 @@ namespace HRsystem.Pages.Identity
             _context = context;
         }
 
-        public IList<AccountInfo> AccountInfo { get;set; } = default!;
+        public IList<AccountInfo> AccountInfo { get; set; } = default!;
+
+        public string? Infomation { get; set; }
 
         public async Task OnGetAsync()
         {
+
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var authority = User.FindFirst("Authority")?.Value;
+            /*
+            var claims = User.Claims;
+            var userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var authority = claims.FirstOrDefault(c => c.Type == "Authority")?.Value;
+             */
+
+            Infomation = "userId:" + userId+ " authority:" + authority;
+
             if (_context.AccountInfo != null)
             {
                 AccountInfo = await _context.AccountInfo.ToListAsync();
