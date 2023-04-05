@@ -22,13 +22,12 @@
             <input class="form-control" asp-for="LoginData.Password" type="password" />
             <span asp-validation-for="LoginData.Password"></span>
         </div>
-
-            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-            {
-                <div>@Model.ErrorMessage</div>
-            }
-
-        <button type="submit" class="btn container btn-primary btn-block mb-4">登录</button>
-    
+               
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert-danger  w-50  container text-center">@Model.ErrorMessage</div>
+        }
+        <br />
+        <button type="submit" class="container  btn  btn-primary btn-block mb-4">登录</button>
     </form>
 </div>

@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
+using System.Security.Claims;
 
 namespace HRsystem.Pages
 {
@@ -27,14 +30,14 @@ namespace HRsystem.Pages
         {
             ErrorMessage = "Testing";
         }
-        
+
         public async Task<IActionResult> OnPostAsync()
         {
             //ErrorMessage = "系统账号为空";
             //return Content("<script>alert('Invalid ID or password.');window.location.href='/';</script>", "text/html");
-            
+
             // 验证用户名和密码
-            if (_context.AccountInfo == null || LoginData==null)
+            if (_context.AccountInfo == null || LoginData == null)
             {
                 ErrorMessage = "系统账号为空";
                 return Page();
@@ -48,15 +51,31 @@ namespace HRsystem.Pages
 
             if (account != null)
             {
-               int aut = account.Autority;
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
+                    new Claim("Authority", account.Authority.ToString())
+                };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                int aut = account.Authority;
                 // 如果验证成功，重定向到受保护的页面
-                if (aut==0)
+                return RedirectToPage("/Identity/Index");
+
+                /*
+                 * var userName = User.FindFirst(ClaimTypes.Name)?.Value;
+                 * var authority = User.FindFirst("Authority")?.Value;
+                */
+
+                if (aut == 0)
                 { return RedirectToPage("/Identity/Index"); }
-                else if(aut ==1)
+                else if (aut == 1)
                 { return RedirectToPage("/Salary/Index"); }
+
                 return RedirectToPage("/Person/Details", new { id = account.Id });
-                return RedirectToPage("/Person/Details?id=202002");
-                return RedirectToPage("/Person/Details/" + account.Id);
             }
             else
             {
@@ -66,8 +85,8 @@ namespace HRsystem.Pages
             return Page();
         }
 
-       
-        
+
+
     }
 
 }

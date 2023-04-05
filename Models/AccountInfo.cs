@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string Password { get; set; }=string.Empty;
-        public int Autority { get; set; }
+        public int Authority { get; set; }
     }
 }
