@@ -49,7 +49,12 @@ namespace HRsystem.Pages.Ui
             SalaryInfo = salaryinfo;
             DepartmentInfo = departmentinfo;
 
-
+            if (_context.RewardingAndPunishmentInfo != null)
+            {
+                RewardingAndPunishmentInfo = await _context.RewardingAndPunishmentInfo
+                    .Where(r => r.PersonId == id)
+                    .ToListAsync();
+            }
 
             return Page();
         }
