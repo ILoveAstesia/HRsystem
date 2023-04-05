@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = new string(string.Empty);
-        public DepartmentInfo? Department;
+        public int DepartmentId { get; set; }
+        public DepartmentInfo? Department { get; set; }
         public char Sex { get; set; }
         public int Age { get; set; }
     }

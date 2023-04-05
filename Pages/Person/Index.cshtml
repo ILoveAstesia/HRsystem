@@ -12,7 +12,7 @@
 </p>
 <form>
     <p>
-        <select asp-for="DepartmentId" asp-items="Model.Department">
+        <select asp-for="InputId" asp-items="Model.Department">
             <option value="">All</option>
         </select>
         Name: <input type="text" asp-for="SearchString" />
@@ -29,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.PersonBasicInfo[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonBasicInfo[0].Department)
+                @Html.DisplayNameFor(model => model.PersonBasicInfo[0].DepartmentId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PersonBasicInfo[0].Sex)
@@ -50,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department)
+                @Html.DisplayFor(modelItem => item.DepartmentId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sex)

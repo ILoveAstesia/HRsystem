@@ -10,26 +10,33 @@ namespace HRsystem.Models
             using var context = new HRsystemContext(
                 serviceProvider.GetRequiredService<
                     DbContextOptions<HRsystemContext>>());
-            if (context == null || context.PersonBasicInfo == null || context.AccountInfo == null || context.SalaryInfo==null)
+            if (context == null || context.PersonBasicInfo == null || context.AccountInfo == null || context.SalaryInfo == null || context.DepartmentInfo==null)
             {
                 throw new ArgumentNullException(nameof(context), "Null HRsystemContext");
             }
 
             // Look for any movies.
-            if (context.PersonBasicInfo.Any()||context.AccountInfo.Any())
+            if (context.PersonBasicInfo.Any() || context.AccountInfo.Any())
             {
                 return;   // DB has been seeded
             }
+
             /*
+            */
+            context.DepartmentInfo.AddRange(
+                new DepartmentInfo { Id = 1, Name = "Finance", Location = "Location 1", },
+                new DepartmentInfo { Id = 2, Name = "Tranction", Location = "Location 2", }
+            );
+
             context.PersonBasicInfo.AddRange(
-                new PersonBasicInfo { Id = 202001, Name = "one", Sex = 'M', Age = 18, Department = "DepartmentOne" },
-                new PersonBasicInfo { Id = 202002, Name = "one", Sex = 'F', Age = 19, Department = "DepartmentTwo" },
-                new PersonBasicInfo { Id = 202003, Name = "one", Sex = 'M', Age = 20, Department = "DepartmentOne" },
-                new PersonBasicInfo { Id = 202004, Name = "one", Sex = 'M', Age = 18, Department = "DepartmentTwo" },
-                new PersonBasicInfo { Id = 202005, Name = "two", Sex = 'M', Age = 19, Department = "DepartmentOne" },
-                new PersonBasicInfo { Id = 202006, Name = "two", Sex = 'F', Age = 20, Department = "DepartmentTwo" },
-                new PersonBasicInfo { Id = 202007, Name = "two", Sex = 'M', Age = 21, Department = "DepartmentOne" },
-                new PersonBasicInfo { Id = 202008, Name = "two", Sex = 'M', Age = 22, Department = "DepartmentTwo" }
+                new PersonBasicInfo { Id = 202001, Name = "one", Sex = 'M', Age = 18,DepartmentId = 1 },
+                new PersonBasicInfo { Id = 202002, Name = "one", Sex = 'F', Age = 19,DepartmentId = 1 },
+                new PersonBasicInfo { Id = 202003, Name = "one", Sex = 'M', Age = 20,DepartmentId = 1 },
+                new PersonBasicInfo { Id = 202004, Name = "one", Sex = 'M', Age = 18,DepartmentId = 1 },
+                new PersonBasicInfo { Id = 202005, Name = "two", Sex = 'M', Age = 19,DepartmentId = 2 },
+                new PersonBasicInfo { Id = 202006, Name = "two", Sex = 'F', Age = 20,DepartmentId = 2 },
+                new PersonBasicInfo { Id = 202007, Name = "two", Sex = 'M', Age = 21,DepartmentId = 2 },
+                new PersonBasicInfo { Id = 202008, Name = "two", Sex = 'M', Age = 22,DepartmentId = 2 }
             );
             context.SaveChanges();
             context.SalaryInfo.AddRange(
@@ -53,7 +60,7 @@ namespace HRsystem.Models
                 new AccountInfo { Id = 202007, Password = "7", Authority = 3 },
                 new AccountInfo { Id = 202008, Password = "1324", Authority = 0 }
             );
-            */
+            
             context.SaveChanges();
             /*
             */

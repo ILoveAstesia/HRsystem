@@ -26,7 +26,7 @@ namespace HRsystem.Pages.AdminPersonUi
         public string? SearchString { get; set; }
         public SelectList? Department { get; set; }
         [BindProperty(SupportsGet = true)]
-        public int? DepartmentId { get; set; }
+        public int? InputId { get; set; }
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of Departments.
@@ -42,9 +42,9 @@ namespace HRsystem.Pages.AdminPersonUi
                 person = person.Where(s => s.Name.Contains(SearchString));
             }
 
-            if (DepartmentId!=null)
+            if (InputId != null)
             {
-                person = person.Where(x => x.Department.Id == DepartmentId);
+                person = person.Where(x => x.DepartmentId == InputId);
             }
 
             Department = new SelectList(await genreQuery.Distinct().ToListAsync());
