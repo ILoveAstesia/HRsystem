@@ -77,6 +77,11 @@ namespace HRsystem.Models
                 new RewardingAndPunishmentInfo { PersonId = 202001, PrincipalId = 202001, Detail = "RewardTest", ReleaseDate = DateTime.Now }
                 );
             context.SaveChanges();
+
+            context.TrainingInfo.AddRange(
+                new TrainingInfo { PersonId = 202008,Detail=DateTime.Now.ToString()+" 业务培训"}
+                );
+            context.SaveChanges();
             /*
             */
         }

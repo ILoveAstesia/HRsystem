@@ -49,8 +49,8 @@ namespace HRsystem.Pages.Ui
             }
 
             PersonBasicInfo = personbasicinfo;
-            SalaryInfo = salaryinfo;
-            DepartmentInfo = departmentinfo;
+            SalaryInfo      = salaryinfo;
+            DepartmentInfo  = departmentinfo;
 
             if (_context.RewardingAndPunishmentInfo != null)
             {

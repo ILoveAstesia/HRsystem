@@ -21,6 +21,7 @@ namespace HRsystem.Data
         public DbSet<HRsystem.Models.AccountInfo> AccountInfo { get; set; } = default!;
         public DbSet<HRsystem.Models.DepartmentInfo> DepartmentInfo { get; set; } = default!;
         public DbSet<HRsystem.Models.RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
+        public DbSet<HRsystem.Models.TrainingInfo> TrainingInfo { get; set; } = default!;   
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /*禁止自动生成自增id*/
@@ -40,11 +41,6 @@ namespace HRsystem.Data
                 .Property(b => b.Id)
                 .ValueGeneratedNever();
 
-            /*自动生成自增id
-            modelBuilder.Entity<RewardingAndPunishmentInfo>()
-                .Property(b => b.Id)
-                .ValueGeneratedNever();
-            */
         }
     }
 }

@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\next\**" />
+    <Content Remove="Models\next\**" />
+    <EmbeddedResource Remove="Models\next\**" />
+    <None Remove="Models\next\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15">
@@ -22,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\next\" />
     <Folder Include="Pages\Person\PAR\" />
     <Folder Include="Pages\Person\Trainning\" />
   </ItemGroup>
