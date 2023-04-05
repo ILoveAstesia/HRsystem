@@ -18,10 +18,12 @@ namespace HRsystem.Data
 
         public DbSet<HRsystem.Models.PersonBasicInfo> PersonBasicInfo { get; set; } = default!;
 
-        public DbSet<HRsystem.Models.SalaryInfo>? SalaryInfo { get; set; }
-        public DbSet<HRsystem.Models.AccountInfo>? AccountInfo { get; set; }
+        public DbSet<HRsystem.Models.SalaryInfo> SalaryInfo { get; set; } = default!;
+        public DbSet<HRsystem.Models.AccountInfo> AccountInfo { get; set; } = default!;
 
-        public DbSet<HRsystem.Models.DepartmentInfo>? DepartmentInfo { get; set; }
+        public DbSet<HRsystem.Models.DepartmentInfo> DepartmentInfo { get; set; } = default!;
+
+        public DbSet<HRsystem.Models.RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +43,12 @@ namespace HRsystem.Data
             modelBuilder.Entity<DepartmentInfo>()
                 .Property(b => b.Id)
                 .ValueGeneratedNever();
+
+            /*自动生成自增id
+            modelBuilder.Entity<RewardingAndPunishmentInfo>()
+                .Property(b => b.Id)
+                .ValueGeneratedNever();
+            */
         }
     }
 }

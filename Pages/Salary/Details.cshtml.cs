@@ -29,6 +29,7 @@ namespace HRsystem.Pages.Salary
             }
 
             var salaryinfo = await _context.SalaryInfo.FirstOrDefaultAsync(m => m.Id == id);
+
             if (salaryinfo == null)
             {
                 return NotFound();

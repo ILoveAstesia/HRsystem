@@ -62,6 +62,11 @@ namespace HRsystem.Models
             );
             
             context.SaveChanges();
+
+            context.RewardingAndPunishmentInfo.AddRange(
+
+                );
+
             /*
             */
         }
