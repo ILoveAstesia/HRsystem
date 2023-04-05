@@ -101,12 +101,14 @@ namespace HRsystem.Pages
                 else if (aut == 1)
                 { return RedirectToPage("/Salary/Index"); }
 
-                return RedirectToPage("/Person/Details", new { id = account.Id });
+            return RedirectToPage("/Ui/PersonInfo");
 
-                /*
-                return RedirectToPage("/Identity/Index");
-                 */
-            
+                //return RedirectToPage("/Person/Details", new { id = account.Id });
+
+            /*
+            return RedirectToPage("/Identity/Index");
+             */
+
 
 
 

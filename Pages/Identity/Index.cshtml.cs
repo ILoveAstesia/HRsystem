@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Identity
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

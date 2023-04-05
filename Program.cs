@@ -22,14 +22,18 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AdminOnly", policy =>
-        policy.RequireAssertion(context =>
-            context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
+
+    options.AddPolicy("SuperAdminOnly", policy =>
+    policy.RequireAssertion(context =>
+        context.User.HasClaim(c => c.Type == "Authority" && c.Value == "0")));
 
     options.AddPolicy("AdminLest", policy =>
     policy.RequireAssertion(context =>
         context.User.HasClaim(c => c.Type == "Authority" && (c.Value == "1" || c.Value == "0"))));
 
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireAssertion(context =>
+            context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
 });
 
 var app = builder.Build();
