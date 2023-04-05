@@ -49,8 +49,13 @@ namespace HRsystem.Pages
 
 
 
-            if (account != null)
+            if (account == null)
             {
+                // 如果验证失败，显示错误消息
+                ErrorMessage = "无效的用户名或密码";
+                return Page();
+            }
+            
                 /*
                 var claims = new List<Claim>
                 {
@@ -69,6 +74,14 @@ namespace HRsystem.Pages
 
                 var claimsIdentity = new ClaimsIdentity(
                     claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                //如果需要读取cookie使用以下代码
+
+                /*
+                 * var userName = User.FindFirst(ClaimTypes.Name)?.Value;
+                 * var authority = User.FindFirst("Authority")?.Value;
+                */
+
                 //写入cookie
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
@@ -76,27 +89,27 @@ namespace HRsystem.Pages
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                 // 如果验证成功，重定向到受保护的页面
-                return RedirectToPage("/Identity/Index");
 
-                /*
-                 * var userName = User.FindFirst(ClaimTypes.Name)?.Value;
-                 * var authority = User.FindFirst("Authority")?.Value;
-                */
 
                 int aut = account.Authority;
                 if (aut == 0)
-                { return RedirectToPage("/Identity/Index"); }
+                {
+                return RedirectToPage("/Ui/Index");
+                //return RedirectToPage("/Identity/Index");
+
+                }
                 else if (aut == 1)
                 { return RedirectToPage("/Salary/Index"); }
 
                 return RedirectToPage("/Person/Details", new { id = account.Id });
-            }
-            else
-            {
-                // 如果验证失败，显示错误消息
-                ErrorMessage = "无效的用户名或密码";
-            }
-            return Page();
+
+                /*
+                return RedirectToPage("/Identity/Index");
+                 */
+            
+
+
+
         }
 
 

@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Departments\" />
     <Folder Include="Pages\Person\PAR\" />
     <Folder Include="Pages\Person\Trainning\" />
   </ItemGroup>
