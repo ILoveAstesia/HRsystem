@@ -1,11 +1,19 @@
 ﻿@page
 @model HRsystem.Pages.Ui.PersonInfoModel
 @{
+    ViewData["Title"] = "PersonInfo Ui page";
 }
-
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.SalaryInfo.Id)
+</dt>
+<dt class="col-sm-10">
+    @Html.DisplayFor(model => model.SalaryInfo.Id)
+</dt>
 <div>
-    <h4>PersonBasicInfo</h4>
+    <h4>PersonInfo</h4>
+    <!---->
     <hr />
+    <div class="w-100 border border-primary">
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PersonBasicInfo.Name)
@@ -14,10 +22,10 @@
             @Html.DisplayFor(model => model.PersonBasicInfo.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PersonBasicInfo.Department)
+            @Html.DisplayNameFor(model => model.PersonBasicInfo.DepartmentId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PersonBasicInfo.Department)
+            @Html.DisplayFor(model => model.PersonBasicInfo.DepartmentId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PersonBasicInfo.Sex)
@@ -32,4 +40,50 @@
             @Html.DisplayFor(model => model.PersonBasicInfo.Age)
         </dd>
     </dl>
+    </div>
+
+    <div>
+        <h4>SalaryInfo</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SalaryInfo.Basic)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SalaryInfo.Basic)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SalaryInfo.Bonus)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SalaryInfo.Bonus)
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <h4>DepartmentInfo</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DepartmentInfo.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DepartmentInfo.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DepartmentInfo.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DepartmentInfo.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DepartmentInfo.Location)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DepartmentInfo.Location)
+            </dd>
+        </dl>
+    </div>
+
 </div>

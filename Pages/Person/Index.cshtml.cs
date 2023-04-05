@@ -50,6 +50,7 @@ namespace HRsystem.Pages.Person
 
             DepartmentList = new SelectList(await genreQuery.Distinct().ToListAsync());
             PersonBasicInfo = await person.ToListAsync();
+            
         }
     }
 }
