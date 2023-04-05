@@ -51,17 +51,29 @@ namespace HRsystem.Pages
 
             if (account != null)
             {
+                /*
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
+                    new Claim("Authority", account.Authority.ToString())
+                };
+                var claimsIdentity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                 */
+
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
                     new Claim("Authority", account.Authority.ToString())
                 };
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
+                var claimsIdentity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                int aut = account.Authority;
                 // 如果验证成功，重定向到受保护的页面
                 return RedirectToPage("/Identity/Index");
 
@@ -70,6 +82,7 @@ namespace HRsystem.Pages
                  * var authority = User.FindFirst("Authority")?.Value;
                 */
 
+                int aut = account.Authority;
                 if (aut == 0)
                 { return RedirectToPage("/Identity/Index"); }
                 else if (aut == 1)
