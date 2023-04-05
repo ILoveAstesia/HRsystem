@@ -20,7 +20,7 @@ namespace HRsystem.Models
             {
                 return;   // DB has been seeded
             }
-
+            /*
             context.PersonBasicInfo.AddRange(
                 new PersonBasicInfo { Id = 202001, Name = "one", Sex = 'M', Age = 18, Department = "DepartmentOne" },
                 new PersonBasicInfo { Id = 202002, Name = "one", Sex = 'F', Age = 19, Department = "DepartmentTwo" },
@@ -53,7 +53,7 @@ namespace HRsystem.Models
                 new AccountInfo { Id = 202007, Password = "7", Authority = 3 },
                 new AccountInfo { Id = 202008, Password = "1324", Authority = 0 }
             );
-
+            */
             context.SaveChanges();
             /*
             */

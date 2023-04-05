@@ -11,7 +11,7 @@ namespace HRsystem.Data
 {
     public class HRsystemContext : DbContext
     {
-        public HRsystemContext (DbContextOptions<HRsystemContext> options)
+        public HRsystemContext(DbContextOptions<HRsystemContext> options)
             : base(options)
         {
         }
@@ -20,9 +20,12 @@ namespace HRsystem.Data
 
         public DbSet<HRsystem.Models.SalaryInfo>? SalaryInfo { get; set; }
         public DbSet<HRsystem.Models.AccountInfo>? AccountInfo { get; set; }
-        /**/
+
+        public DbSet<HRsystem.Models.DepartmentInfo>? DepartmentInfo { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*禁止自动生成自增id*/
             modelBuilder.Entity<PersonBasicInfo>()
                 .Property(b => b.Id)
                 .ValueGeneratedNever();
@@ -32,6 +35,10 @@ namespace HRsystem.Data
                 .ValueGeneratedNever();
 
             modelBuilder.Entity<AccountInfo>()
+                .Property(b => b.Id)
+                .ValueGeneratedNever();
+
+            modelBuilder.Entity<DepartmentInfo>()
                 .Property(b => b.Id)
                 .ValueGeneratedNever();
         }
