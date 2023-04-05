@@ -64,8 +64,8 @@ namespace HRsystem.Models
             context.SaveChanges();
 
             context.RewardingAndPunishmentInfo.AddRange(
-
-                );
+                new RewardingAndPunishmentInfo { PersonId=202008,PrincipalId=202001,Detail="RewardTest",ReleaseDate=DateTime.Now }
+            );
 
             /*
             */
