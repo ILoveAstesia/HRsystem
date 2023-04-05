@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Identity
 {
+    [Authorize(Policy = "AdminLest")]
     public class DeleteModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

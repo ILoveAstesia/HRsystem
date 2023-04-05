@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +35,24 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AdminOnly", policy =>
         policy.RequireAssertion(context =>
             context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
+    /*
+    options.AddPolicy("SelfOrAdminOnly", policy =>
+    policy.RequireAssertion(context =>
+    {
+        var httpContext = (context.Resource as AuthorizationFilterContext)?.HttpContext;
+        var routeData = httpContext?.GetRouteData();
+        var resourceId = routeData?.Values["Id"]?.ToString();
+        if (resourceId == null)
+        {
+            return false;
+        }
+        return context.User.HasClaim("authority", "1") ||
+               context.User.HasClaim("Id", resourceId);
+    }));
+     */
+
 });
+
 
 var app = builder.Build();
 

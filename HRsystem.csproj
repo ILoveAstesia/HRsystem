@@ -8,9 +8,17 @@
 
   <ItemGroup>
     <Compile Remove="Models\next\**" />
+    <Compile Remove="Pages\Person\PAR\**" />
+    <Compile Remove="Pages\Person\Trainning\**" />
     <Content Remove="Models\next\**" />
+    <Content Remove="Pages\Person\PAR\**" />
+    <Content Remove="Pages\Person\Trainning\**" />
     <EmbeddedResource Remove="Models\next\**" />
+    <EmbeddedResource Remove="Pages\Person\PAR\**" />
+    <EmbeddedResource Remove="Pages\Person\Trainning\**" />
     <None Remove="Models\next\**" />
+    <None Remove="Pages\Person\PAR\**" />
+    <None Remove="Pages\Person\Trainning\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,11 +34,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Person\PAR\" />
-    <Folder Include="Pages\Person\Trainning\" />
   </ItemGroup>
 
 </Project>

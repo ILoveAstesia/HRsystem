@@ -35,6 +35,13 @@
             @Html.DisplayFor(model => model.PersonBasicInfo.Age)
         </dd>
     </dl>
+
+        <a asp-page="../Person/Details" asp-route-id="@Model.PersonBasicInfo.Id">Details</a> |
+                <!--
+            <a asp-page="./Edit" asp-route-id="@Model.PersonBasicInfo.Id">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@Model.PersonBasicInfo.Id">Delete</a>
+                -->
+            
     </div>
 
     <div>

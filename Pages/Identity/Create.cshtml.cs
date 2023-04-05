@@ -9,9 +9,11 @@ using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Identity
 {
+    [Authorize(Policy = "AdminLest")]
     public class CreateModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

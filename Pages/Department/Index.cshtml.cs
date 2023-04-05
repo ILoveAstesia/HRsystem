@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Departments
 {
+    [Authorize(Policy = "AdminLest")]
     public class IndexModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

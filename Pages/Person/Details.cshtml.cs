@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace HRsystem.Pages.AdminPersonUi
 {
+    //[Authorize(Policy = "SelfOrAdminOnly")]
     public class DetailsModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;
@@ -23,6 +26,20 @@ namespace HRsystem.Pages.AdminPersonUi
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+                if (id == null)
+                {
+                    return NotFound();
+                }
+            // 仅限自己和管理员查看的功能
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var user = await _context.AccountInfo.FindAsync(int.Parse(userId));
+
+                if (user == null || (user.Authority > 1 && user.Id != id))
+                {
+                    return Unauthorized();
+                }
+
+
             if (id == null || _context.PersonBasicInfo == null)
             {
                 return NotFound();
