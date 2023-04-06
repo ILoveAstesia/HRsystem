@@ -24,21 +24,23 @@ namespace HRsystem.Pages.Account
 
         public IList<AccountInfo> AccountInfo { get; set; } = default!;
 
-        public string? Infomation { get; set; }
+        public string? Infomation { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
 
 
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var authority = User.FindFirst("Authority")?.Value;
+            //var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //var authority = User.FindFirst("Authority")?.Value;
+            //Infomation = "userId:" + userId+ " authority:" + authority;
             /*
             var claims = User.Claims;
             var userId = claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var authority = claims.FirstOrDefault(c => c.Type == "Authority")?.Value;
              */
 
-            Infomation = "userId:" + userId+ " authority:" + authority;
+
+            Infomation = "userId:" + User.FindFirst(ClaimTypes.NameIdentifier)?.Value + " Authority:" + User.FindFirst("Authority")?.Value; ;
 
             if (_context.AccountInfo != null)
             {

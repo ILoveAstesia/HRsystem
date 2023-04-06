@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Configuration;
 using System.Security.Claims;
 
 namespace HRsystem.Pages.Ui
@@ -17,12 +18,12 @@ namespace HRsystem.Pages.Ui
             _context = context;
             DepartmentInfo = default!;
         }
-
-        public string? ErrorMassage { get; set; }
+        public string? AuthorityMassage { get; set; } = default!;
+        public string? ErrorMassage { get; set; } = default!;
         public PersonBasicInfo PersonBasicInfo { get; set; } = default!;
         public SalaryInfo SalaryInfo { get; set; } = default!;
         public AccountInfo AccountInfo { get; set; } = default!;
-        public DepartmentInfo DepartmentInfo { get; set; }
+        public DepartmentInfo DepartmentInfo { get; set; } = default!;
         public IList<RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
         public IList<TrainingInfo> TrainingInfo { get; set; } = default!;
         
@@ -35,7 +36,7 @@ namespace HRsystem.Pages.Ui
                 return Page();
             }
 
-
+            AuthorityMassage= "ID: "+User.FindFirst(ClaimTypes.NameIdentifier)?.Value+" Authority: "+User.FindFirst("Authority")?.Value;
 
             int id = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var personbasicinfo = await _context.PersonBasicInfo

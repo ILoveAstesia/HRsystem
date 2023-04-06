@@ -94,12 +94,12 @@ namespace HRsystem.Pages
                 int aut = account.Authority;
                 if (aut == 0)
                 {
-                return RedirectToPage("/Ui/Index");
+                return RedirectToPage("/Ui/SuperAdminInfo");
                 //return RedirectToPage("/Identity/Index");
 
                 }
                 else if (aut == 1)
-                { return RedirectToPage("/Salary/Index"); }
+                { return RedirectToPage("/Ui/AdminInfo"); }
 
             return RedirectToPage("/Ui/PersonInfo");
 
