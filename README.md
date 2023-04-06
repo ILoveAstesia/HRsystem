@@ -1,3 +1,16 @@
+# Todo
+
+[-]  Page index To Login ui
+
+Boostrap
+
+Autorize
+
+Namespace
+
+
+
+
 # HRsystem
 用于测试人力资源管理系统
 基于大数据的企业人力资源管理系统
@@ -83,14 +96,4 @@ C:\Windows\SysWOW64
 
 win r
 输入regsvr32 vcruntime140_1.dll，点击回车，注册dll
-# Todo
-
-[-]  Page index To Login ui
-
-Boostrap
-
-Autorize
-
-Namespace
-
 
