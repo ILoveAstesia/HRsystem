@@ -2,32 +2,35 @@
 @model HRsystem.Pages.Account.LoginModel
 @{
 }
-@*
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 </div>
+
+<!--
 
 <div class="w-50 container">
     <form method="post">
 
         <div class="form-outline mb-4 ">
-            <label class="form-label" asp-for="Input.Id">用户名:</label>
-            <input class="form-control" asp-for="Input.Id" value="" />
-            <span asp-validation-for="Input.Id"></span>
+            <label class="form-label" asp-for="LoginData.Id">用户名:</label>
+            <input class="form-control" asp-for="LoginData.Id" value="" />
+            <span asp-validation-for="LoginData.Id"></span>
         </div>
         <div class="form-outline mb-4 ">
-            <label class="form-label" asp-for="Input.Password">密码:</label>
-            <input class="form-control" asp-for="Input.Password" type="password" />
-            <span asp-validation-for="Input.Password"></span>
+            <label class="form-label" asp-for="LoginData.Password">密码:</label>
+            <input class="form-control" asp-for="LoginData.Password" type="password" />
+            <span asp-validation-for="LoginData.Password"></span>
         </div>
 
-        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        @*if (!string.IsNullOrEmpty(Model.ErrorMessage))
         {
-            <div>@Model.ErrorMessage</div>
-        }
 
-        <button type="submit" class="btn container btn-primary btn-block mb-4">登录</button>
+            <div class="alert-danger  w-50  container text-center">@Model.ErrorMessage</div>
 
+        }*@
+
+        <br />
+        <button type="submit" class="container  btn  btn-primary btn-block mb-4">登录</button>
     </form>
 </div>
-*@
+-->

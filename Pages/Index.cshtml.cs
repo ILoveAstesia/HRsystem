@@ -13,18 +13,19 @@ namespace HRsystem.Pages
         private readonly HRsystem.Data.HRsystemContext _context;
         public class LoginModel
         {
-            public int Id { get; set; } = 0;
-            public string? Password { get; set; }
         }
+        [BindProperty]
+        public int Id { get; set; } = default!;
+        [BindProperty]
+        public string? Password { get; set; } = default!;
         public IndexModel(HRsystem.Data.HRsystemContext context)
         {
             _context = context;
-            LoginData ??= new LoginModel();
+            //LoginData ??= new LoginModel();
         }
 
         public string? ErrorMessage { get; set; }
-        [BindProperty]
-        public LoginModel LoginData { get; set; }
+        //public LoginModel LoginData { get; set; }
 
         public void OnGet()
         {
@@ -37,14 +38,14 @@ namespace HRsystem.Pages
             //return Content("<script>alert('Invalid ID or password.');window.location.href='/';</script>", "text/html");
 
             // 验证用户名和密码
-            if (_context.AccountInfo == null || LoginData == null)
+            if (_context.AccountInfo == null )
             {
                 ErrorMessage = "系统账号为空";
                 return Page();
             }
 
             var account = await _context.AccountInfo
-                .Where(a => a.Id == LoginData.Id && a.Password == LoginData.Password)
+                .Where(a => a.Id == Id && a.Password == Password)
                 .FirstOrDefaultAsync();
 
 
