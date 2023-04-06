@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace HRsystem.Pages.Identity
+namespace HRsystem.Pages.Account
 {
     [Authorize(Policy = "AdminLest")]
     public class CreateModel : PageModel

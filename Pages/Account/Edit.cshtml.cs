@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
 
-namespace HRsystem.Pages.Identity
+namespace HRsystem.Pages.Account
 {
     public class EditModel : PageModel
     {
-        private readonly HRsystem.Data.HRsystemContext _context;
+        private readonly HRsystemContext _context;
 
-        public EditModel(HRsystem.Data.HRsystemContext context)
+        public EditModel(HRsystemContext context)
         {
             _context = context;
         }
@@ -30,7 +30,7 @@ namespace HRsystem.Pages.Identity
                 return NotFound();
             }
 
-            var accountinfo =  await _context.AccountInfo.FirstOrDefaultAsync(m => m.Id == id);
+            var accountinfo = await _context.AccountInfo.FirstOrDefaultAsync(m => m.Id == id);
             if (accountinfo == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace HRsystem.Pages.Identity
 
         private bool AccountInfoExists(int id)
         {
-          return (_context.AccountInfo?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.AccountInfo?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

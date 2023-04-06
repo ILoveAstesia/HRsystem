@@ -34,6 +34,9 @@ namespace HRsystem.Pages.Ui
                 ErrorMassage = "NameIdentifier is null Please Login in";
                 return Page();
             }
+
+
+
             int id = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
             var personbasicinfo = await _context.PersonBasicInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);

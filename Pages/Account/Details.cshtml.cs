@@ -8,18 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
 
-namespace HRsystem.Pages.Identity
+namespace HRsystem.Pages.Account
 {
     public class DetailsModel : PageModel
     {
-        private readonly HRsystem.Data.HRsystemContext _context;
+        private readonly HRsystemContext _context;
 
-        public DetailsModel(HRsystem.Data.HRsystemContext context)
+        public DetailsModel(HRsystemContext context)
         {
             _context = context;
         }
 
-      public AccountInfo AccountInfo { get; set; } = default!; 
+        public AccountInfo AccountInfo { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -33,7 +33,7 @@ namespace HRsystem.Pages.Identity
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 AccountInfo = accountinfo;
             }

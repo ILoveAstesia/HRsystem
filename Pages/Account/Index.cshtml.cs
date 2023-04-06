@@ -10,7 +10,7 @@ using HRsystem.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 
-namespace HRsystem.Pages.Identity
+namespace HRsystem.Pages.Account
 {
     [Authorize]
     public class IndexModel : PageModel

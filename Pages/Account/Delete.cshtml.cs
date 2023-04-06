@@ -9,7 +9,7 @@ using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace HRsystem.Pages.Identity
+namespace HRsystem.Pages.Account
 {
     [Authorize(Policy = "AdminLest")]
     public class DeleteModel : PageModel
