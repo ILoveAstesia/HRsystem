@@ -16,9 +16,26 @@ builder.Services.AddDbContext<HRsystemContext>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
+
+        //options.Cookie.Name = "RememberMeCookie";
+
         options.LoginPath = "/Account/Login";
         options.LogoutPath = "/Account/Logout";
         options.AccessDeniedPath = "/Account/AccessDenied";
+
+        /*
+         *  ExpireTimeSpan选项用于设置Cookie的过期时间。
+         *  在这个例子中，Cookie的过期时间被设置为30天。
+         *  这意味着，如果用户在30天内没有再次访问网站，那么Cookie将会过期，用户需要重新登录。
+
+            SlidingExpiration选项用于指定是否启用滑动过期。
+            如果启用了滑动过期，那么每当用户在过期时间的一半时访问网站时，Cookie的过期时间都会被重置为原来的值。
+            例如，在这个例子中，如果用户在15天内访问了网站，那么Cookie的过期时间将被重置为30天。
+         */
+
+        options.ExpireTimeSpan = TimeSpan.FromDays(30);
+        options.SlidingExpiration = true;
+
     });
 
 builder.Services.AddAuthorization(options =>

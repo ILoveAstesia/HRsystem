@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Person
 {
+    [Authorize(Policy = "AdminLest")]
     public class IndexModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;
@@ -30,7 +32,14 @@ namespace HRsystem.Pages.Person
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of Departments.
+            /*
+             
+            if (m.Department==null)
+            {
+                return page();
+            }
 
+            */
             IQueryable<int> genreQuery = from m in _context.PersonBasicInfo
                                             orderby m.Department.Id
                                             select m.Department.Id;

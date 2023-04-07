@@ -14,11 +14,12 @@ namespace HRsystem.Pages.Account
     {
 
         private readonly HRsystem.Data.HRsystemContext _context;
-
         [BindProperty]
+        [Required]
         public int Id { get; set; } = default!;
         [BindProperty]
-        public string? Password { get; set; } = default!;
+        [Required]
+        public string Password { get; set; } = default!;
         public LoginModel(HRsystem.Data.HRsystemContext context)
         {
             _context = context;

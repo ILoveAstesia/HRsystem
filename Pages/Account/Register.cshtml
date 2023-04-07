@@ -1,0 +1,19 @@
+﻿@page
+@model HRsystem.Pages.Account.RegisterModel
+@{
+}
+<h1>Register</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="ID"></label>
+        <input asp-for="ID" />
+        <span asp-validation-for="ID"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <button type="submit">Register</button>
+</form>
