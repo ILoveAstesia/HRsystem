@@ -112,3 +112,4 @@ C:\Windows\SysWOW64
 win r
 输入regsvr32 vcruntime140_1.dll，点击回车，注册dll
 
+change git user name in vs2022
