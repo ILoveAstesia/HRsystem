@@ -102,6 +102,7 @@ sql server对象资源管理器
 
 添加 sql server MSSQLLocalDB
 
+nuget 程序包管理控制台 
 
 SQLExpress
 SQLEXPRESS
