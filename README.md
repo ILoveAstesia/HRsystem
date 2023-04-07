@@ -6,10 +6,15 @@ Boostrap
 
 Autorize
 
+	remenber me
+		
+		inPrivate
+
 	---multiple
 
 Namespace
-
+	
+	√
 
 
 
@@ -90,6 +95,13 @@ ctrl+c
 超管可以在accountinfo界面修改所有人的密码。
 
 ---以下为调试用指令，无需使用---
+
+Update-Database
+
+sql server对象资源管理器
+
+添加 sql server MSSQLLocalDB
+
 
 SQLExpress
 SQLEXPRESS
