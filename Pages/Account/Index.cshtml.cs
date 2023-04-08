@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Account
 {
-    [Authorize]
+    //[Authorize]
     public class IndexModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

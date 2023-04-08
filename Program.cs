@@ -13,9 +13,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<HRsystemContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HRsystemContext") ?? throw new InvalidOperationException("Connection string 'HRsystemContext' not found.")));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+/*builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<HRsystemContext>();
-
+*/
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -37,8 +37,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
             例如，在这个例子中，如果用户在15天内访问了网站，那么Cookie的过期时间将被重置为30天。
          */
 
-        options.ExpireTimeSpan = TimeSpan.FromDays(30);
-        options.SlidingExpiration = true;
+        //options.ExpireTimeSpan = TimeSpan.FromDays(30);
+        //options.SlidingExpiration = true;
 
     });
 

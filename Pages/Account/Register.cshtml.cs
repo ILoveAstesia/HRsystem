@@ -46,9 +46,17 @@ namespace HRsystem.Pages.Account
             //{
             //    ModelState.AddModelError(string.Empty, error.Description);
             //}
-            var user = new AccountInfo { Id = int.Parse(inputID),Password=inputPassword };
-            _context.AccountInfo.Add(user);
-            await _context.SaveChangesAsync();
+            
+            //if(duplicate key){information +="duplicate key"; return page();}
+
+            bool result = int.TryParse(inputID, out int id);
+            if (result)
+            {
+                var user = new AccountInfo { Id = id,Password=inputPassword };
+                _context.AccountInfo.Add(user);
+                await _context.SaveChangesAsync();
+                return Redirect("/Index");
+            }
 
 
             return Page();

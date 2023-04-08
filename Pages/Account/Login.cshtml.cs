@@ -42,7 +42,7 @@ namespace HRsystem.Pages.Account
             // 验证用户名和密码
             if (_context.AccountInfo == null)
             {
-                ErrorMessage = "系统账号为空";
+                ErrorMessage = "系统账号表为空";
                 return Page();
             }
 
@@ -97,6 +97,7 @@ namespace HRsystem.Pages.Account
             int aut = account.Authority;
             if (aut == 0)
             {
+                return RedirectToPage("/Account/index");
                 return RedirectToPage("/Ui/SuperAdminInfo");
                 //return RedirectToPage("/Identity/Index");
 
