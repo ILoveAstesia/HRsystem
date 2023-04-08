@@ -4,6 +4,7 @@ using HRsystem.Data;
 using HRsystem.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<HRsystemContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HRsystemContext") ?? throw new InvalidOperationException("Connection string 'HRsystemContext' not found.")));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<HRsystemContext>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

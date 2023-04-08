@@ -36,7 +36,7 @@ namespace HRsystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountInfo");
+                    b.ToTable("AccountInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.DepartmentInfo", b =>
@@ -54,7 +54,7 @@ namespace HRsystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DepartmentInfo");
+                    b.ToTable("DepartmentInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.PersonBasicInfo", b =>
@@ -80,7 +80,7 @@ namespace HRsystem.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("PersonBasicInfo");
+                    b.ToTable("PersonBasicInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.RewardingAndPunishmentInfo", b =>
@@ -106,7 +106,7 @@ namespace HRsystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RewardingAndPunishmentInfo");
+                    b.ToTable("RewardingAndPunishmentInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.SalaryInfo", b =>
@@ -122,7 +122,7 @@ namespace HRsystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SalaryInfo");
+                    b.ToTable("SalaryInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.TrainingInfo", b =>
@@ -142,7 +142,7 @@ namespace HRsystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TrainingInfo");
+                    b.ToTable("TrainingInfo", (string)null);
                 });
 
             modelBuilder.Entity("HRsystem.Models.PersonBasicInfo", b =>

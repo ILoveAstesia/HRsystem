@@ -3,17 +3,24 @@
 @{
 }
 <h1>Register</h1>
+<div class="text-danger">
+
+    <h1>@Model.information</h1>
+
+</div>
+
+<div asp-validation-summary="All" class="text-danger"></div>
 
 <form method="post">
     <div>
-        <label asp-for="ID"></label>
-        <input asp-for="ID" />
-        <span asp-validation-for="ID"></span>
+        <label asp-for="inputID"></label>
+        <input asp-for="inputID" />
+        <span asp-validation-for="inputID"></span>
     </div>
     <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
+        <label asp-for="inputPassword"></label>
+        <input asp-for="inputPassword" />
+        <span asp-validation-for="inputPassword" class="text-danger"></span>
     </div>
     <button type="submit">Register</button>
 </form>

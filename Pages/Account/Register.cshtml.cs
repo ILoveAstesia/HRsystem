@@ -3,44 +3,53 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Build.Framework;
+using Microsoft.EntityFrameworkCore;
 
 namespace HRsystem.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly UserManager<IdentityUser> userManager;
-
-        public RegisterModel(UserManager<IdentityUser> userManager)
+        //private readonly UserManager<IdentityUser> _userManager;
+        private readonly HRsystem.Data.HRsystemContext _context;
+        public RegisterModel(/*UserManager<IdentityUser> userManager,*/HRsystem.Data.HRsystemContext context)
         {
-            this.userManager = userManager;
+            //_userManager = userManager;
+            _context = context;
         }
         [BindProperty]
         [Required]
-        public string ID { get; set; }=default!;
+        public string inputID { get; set; }=default!;
         [BindProperty]
         [Required]
-        public string Password { get; set; } = default!;
+        public string inputPassword { get; set; } = default!;
 
-
+        public string information { get; set; } = default!;
         //[HttpPost]
-        public async Task<IActionResult> Register(AccountInfo model)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var id = new IdentityUser { UserName = model.Id.ToString() };
-                var result = await userManager.CreateAsync(id, model.Password);
-
-                if (result.Succeeded)
-                {
-                    return Redirect("/Index");
-                    //return RedirectToAction("Index", "Home");
-                }
-
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                information += "Your account information is not validate: ";
+                return Page();
             }
+
+            //var user = new IdentityUser { Id = inputID.ToString() };
+            //var result = await _userManager.CreateAsync(user, inputPassword);
+
+            //if (result.Succeeded)
+            //{
+            //    return Redirect("./Index");
+            //    //return RedirectToAction("Index", "Home");
+            //}
+
+            //foreach (var error in result.Errors)
+            //{
+            //    ModelState.AddModelError(string.Empty, error.Description);
+            //}
+            var user = new AccountInfo { Id = int.Parse(inputID),Password=inputPassword };
+            _context.AccountInfo.Add(user);
+            await _context.SaveChangesAsync();
+
 
             return Page();
         }
