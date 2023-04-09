@@ -1,6 +1,29 @@
 # Todo
 
-[-]  Page index To Login ui
+[√]  Page index To Login ui
+
+[ - ]  Rememenberme
+
+use accountinfo
+
+	add RememenberMe to module
+
+	add checkbox to page
+
+	add if to cs
+
+		ture
+
+		persisit
+
+		false
+
+		lougout
+
+use identity
+	
+return url
+
 
 Boostrap
 	

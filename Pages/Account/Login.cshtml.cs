@@ -33,7 +33,8 @@ namespace HRsystem.Pages.Account
         {
             ErrorMessage = "Testing";
         }
-
+        [BindProperty]
+        public string rememberMe { get; set; } = default!;
         public async Task<IActionResult> OnPostAsync()
         {
             //ErrorMessage = "系统账号为空";
@@ -49,8 +50,6 @@ namespace HRsystem.Pages.Account
             var account = await _context.AccountInfo
                 .Where(a => a.Id == Id && a.Password == Password)
                 .FirstOrDefaultAsync();
-
-
 
             if (account == null)
             {
@@ -86,21 +85,34 @@ namespace HRsystem.Pages.Account
              * var userName = User.FindFirst(ClaimTypes.Name)?.Value;
              * var authority = User.FindFirst("Authority")?.Value;
             */
+            string returnUrl = Request.Query["ReturnUrl"];
+
+            bool isRemember = rememberMe == "true" ? true : false;
+
+            AuthenticationProperties authProperties = new()
+            {
+                IsPersistent = isRemember,//是否持久化
+                //如果用户点“登录“进来，登录成功后跳转到首页，否则跳转到上一个页面
+                RedirectUri = string.IsNullOrWhiteSpace(returnUrl) ? "/Index" : returnUrl,
+                ExpiresUtc = DateTime.UtcNow.AddMonths(1) //设置 cookie 过期时间：一个月后过期
+            };
+
 
             //写入cookie
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var principal = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
             // 如果验证成功，重定向到受保护的页面
 
-
+            /*
+             
             int aut = account.Authority;
             if (aut == 0)
             {
                 return RedirectToPage("/Account/index");
-                return RedirectToPage("/Ui/SuperAdminInfo");
+                //return RedirectToPage("/Ui/SuperAdminInfo");
                 //return RedirectToPage("/Identity/Index");
 
             }
@@ -110,13 +122,14 @@ namespace HRsystem.Pages.Account
             return RedirectToPage("/Ui/PersonInfo");
 
             //return RedirectToPage("/Person/Details", new { id = account.Id });
+             */
 
             /*
             return RedirectToPage("/Identity/Index");
              */
 
 
-
+            return Page();
 
         }
 
