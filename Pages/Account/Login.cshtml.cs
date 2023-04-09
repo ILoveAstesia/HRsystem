@@ -75,8 +75,10 @@ namespace HRsystem.Pages.Account
                     new Claim("Authority", account.Authority.ToString())
                 };
 
+            /*
             var claimsIdentity = new ClaimsIdentity(
                 claims, CookieAuthenticationDefaults.AuthenticationScheme);
+             */
 
             //如果需要读取cookie使用以下代码
 

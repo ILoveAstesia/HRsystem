@@ -3,12 +3,21 @@
 [-]  Page index To Login ui
 
 Boostrap
+	
+	g m p
+
+BugFix
+
+	! null
+
 
 Autorize
 
 	remenber me
 		
 		inPrivate
+
+			manual logout
 
 	---multiple
 
