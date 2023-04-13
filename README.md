@@ -1,8 +1,10 @@
 # Todo
 
-[√]  Page index To Login ui
+[√] Page index To Login ui
 
-[ - ]  Rememenberme
+[√] Rememenberme
+
+[√] Create a user with account
 
 use accountinfo
 
@@ -27,6 +29,20 @@ return url
 
 Boostrap
 	
+	可以试试
+	
+	灰色的背景
+
+	不对称的登陆界面
+
+	叠加
+
+	变形
+
+	重复
+
+
+
 	g m p
 
 BugFix
