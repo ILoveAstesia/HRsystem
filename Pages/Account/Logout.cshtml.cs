@@ -13,7 +13,7 @@ namespace HRsystem.Pages.Account
         public string? Infomation { get; set; } = default!;
         public void OnGet()
         {
-            Infomation = "userId:" + User.FindFirst(ClaimTypes.NameIdentifier)?.Value + " Authority:" + User.FindFirst("Authority")?.Value;
+            Infomation = "UserId:" + User.FindFirst(ClaimTypes.NameIdentifier)?.Value + " Authority:" + User.FindFirst("Authority")?.Value;
         }
 
         public async Task<IActionResult> OnPostAsync()

@@ -5,11 +5,12 @@
 }
 @Model.AuthorityMassage
 @Model.ErrorMassage
-<div class="border container-fluid ">
-    <h4>PersonInfo</h4>
+<section class="bg-light p-5">
+
+    <h4 class="display-6 text-primary">PersonInfo</h4>
     <!---->
     <hr />
-    <div class="w-100 border-0 container">
+    <div class="w-100 container">
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PersonBasicInfo.Name)
@@ -37,7 +38,7 @@
         </dd>
     </dl>
 
-        <a asp-page="../Person/Details" asp-route-id="@Model.PersonBasicInfo.Id">Details</a> |
+        <a asp-page="../Person/Details" asp-route-id="@Model.PersonBasicInfo.Id">Details</a> 
                 <!--
             <a asp-page="./Edit" asp-route-id="@Model.PersonBasicInfo.Id">Edit</a> |
                 <a asp-page="./Delete" asp-route-id="@Model.PersonBasicInfo.Id">Delete</a>
@@ -45,8 +46,11 @@
             
     </div>
 
+</section>
+
+<section class=" p-5 text-dark" >
     <div>
-        <h4>SalaryInfo</h4>
+        <h4 class="display-6 text-primary">SalaryInfo</h4>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
@@ -63,9 +67,12 @@
             </dd>
         </dl>
     </div>
+</section>
+
+<section class="bg-light p-5">
 
     <div>
-        <h4>DepartmentInfo</h4>
+        <h4 class="display-6 text-primary">DepartmentInfo</h4>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
@@ -89,10 +96,12 @@
         </dl>
     </div>
 
-</div>
-<br />
-<div class="border container-fluid ">
-    RewardingAndPunishmentInfo
+</section>
+
+
+<section class="p-1 ">
+<div class=" container-fluid ">
+    <h4 class="display-6 text-primary">RewardingAndPunishmentInfo</h4>
     <table class="table">
         <thead>
             <tr>
@@ -108,6 +117,7 @@
                 <th></th>
             </tr>
         </thead>
+
         <tbody>
             @foreach (var item in Model.RewardingAndPunishmentInfo)
             {
@@ -122,7 +132,7 @@
                         @Html.DisplayFor(modelItem => item.Detail)
                     </td>
                     <td>
-                        <a asp-page="../RewardingAndPunishment/Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="../RewardingAndPunishment/Details" asp-route-id="@item.Id">Details</a> 
                     <!--
                         <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
@@ -131,13 +141,14 @@
                 </tr>
             }
         </tbody>
+
     </table>
 </div>
+    </section>
 
-<br />
-
+<section class="bg-light">
 <div class="border container">
-    TrainingInfo
+    <h4 class="display-6 text-primary">TrainingInfo</h4>
     <table class="table">
         <thead>
             <tr>
@@ -165,3 +176,4 @@
         </tbody>
     </table>
 </div>
+</section>
