@@ -4,7 +4,7 @@
 
 [√] Rememenberme
 
-[√] Create a user with account
+[0] Create a user with account
 
 use accountinfo
 
