@@ -29,9 +29,12 @@ namespace HRsystem.Pages.Account
         public string? ErrorMessage { get; set; }
         //public LoginModel LoginData { get; set; }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         public void OnGet()
         {
-            ErrorMessage = "Testing";
+            ErrorMessage = "";
         }
         [BindProperty]
         public string rememberMe { get; set; } = default!;

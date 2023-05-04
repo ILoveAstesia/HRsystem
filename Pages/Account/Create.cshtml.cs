@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace HRsystem.Pages.Account
 {
-    [Authorize(Policy = "AdminLest")]
+    //[Authorize(Policy = "AdminLest")]
     public class CreateModel : PageModel
     {
         private readonly HRsystem.Data.HRsystemContext _context;

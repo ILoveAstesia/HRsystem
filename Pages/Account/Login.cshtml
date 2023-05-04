@@ -2,21 +2,23 @@
 @model HRsystem.Pages.Account.LoginModel
 @{
 }
+<section class=" p-5 bg-light ">
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-2 text-primary">Login</h1>
 </div>
 
-<div class="w-50 container border">
+<div class="w-50 container border-0">
     <form method="post">
 
         <div class="form-outline mb-4 ">
-            <label class="form-label" asp-for="Id">用户名:</label>
-            <input class="form-control" asp-for="Id" value="" />
+            <label class="form-label text-secondary display-6 " asp-for="Id">ID</label>
+            <input class="form-control" asp-for="Id" value="" placeholder="用户名" />
             <span asp-validation-for="Id"></span>
         </div>
         <div class="form-outline mb-4 ">
-            <label class="form-label" asp-for="Password">密码:</label>
-            <input class="form-control" asp-for="Password" type="password" />
+            <label class="form-label text-secondary display-6" asp-for="Password">Password</label>
+            <input class="form-control" asp-for="Password" type="password" placeholder="密码" />
             <span asp-validation-for="Password"></span>
         </div>
 
@@ -27,7 +29,12 @@
         <br />
 
         <input type="checkbox" value="true" asp-for="rememberMe" /> 记住我
+        <br />
+        <div class=" text-center ">
 
-        <button type="submit" class="container  btn  btn-primary btn-block mb-4">登录</button>
+        <button type="submit" class=" btn  btn-primary btn-block mb-4">登录</button>
+        </div>
     </form>
 </div>
+
+</section>

@@ -8,6 +8,41 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization(options =>
+{
+
+    options.AddPolicy("SuperAdminOnly", policy =>
+    policy.RequireAssertion(context =>
+        context.User.HasClaim(c => c.Type == "Authority" && c.Value == "0")));
+
+    options.AddPolicy("AdminLest", policy =>
+    policy.RequireAssertion(context =>
+        context.User.HasClaim(c => c.Type == "Authority" && (c.Value == "1" || c.Value == "0"))));
+
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireAssertion(context =>
+            context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
+
+
+    /*
+    options.AddPolicy("SelfOrAdminOnly", policy =>
+    policy.RequireAssertion(context =>
+    {
+        var httpContext = (context.Resource as AuthorizationFilterContext)?.HttpContext;
+        var routeData = httpContext?.GetRouteData();
+        var resourceId = routeData?.Values["Id"]?.ToString();
+        if (resourceId == null)
+        {
+            return false;
+        }
+        return context.User.HasClaim("authority", "1") ||
+               context.User.HasClaim("Id", resourceId);
+    }));
+     */
+
+});
+
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<HRsystemContext>(options =>
@@ -27,6 +62,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LogoutPath = "/Account/Logout";
         options.AccessDeniedPath = "/Account/AccessDenied";
 
+        
         /*
          *  ExpireTimeSpan选项用于设置Cookie的过期时间。
          *  在这个例子中，Cookie的过期时间被设置为30天。
@@ -42,37 +78,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
     });
 
-builder.Services.AddAuthorization(options =>
-{
-
-    options.AddPolicy("SuperAdminOnly", policy =>
-    policy.RequireAssertion(context =>
-        context.User.HasClaim(c => c.Type == "Authority" && c.Value == "0")));
-
-    options.AddPolicy("AdminLest", policy =>
-    policy.RequireAssertion(context =>
-        context.User.HasClaim(c => c.Type == "Authority" && (c.Value == "1" || c.Value == "0"))));
-
-    options.AddPolicy("AdminOnly", policy =>
-        policy.RequireAssertion(context =>
-            context.User.HasClaim(c => c.Type == "Authority" && c.Value == "1")));
-    /*
-    options.AddPolicy("SelfOrAdminOnly", policy =>
-    policy.RequireAssertion(context =>
-    {
-        var httpContext = (context.Resource as AuthorizationFilterContext)?.HttpContext;
-        var routeData = httpContext?.GetRouteData();
-        var resourceId = routeData?.Values["Id"]?.ToString();
-        if (resourceId == null)
-        {
-            return false;
-        }
-        return context.User.HasClaim("authority", "1") ||
-               context.User.HasClaim("Id", resourceId);
-    }));
-     */
-
-});
 
 
 var app = builder.Build();

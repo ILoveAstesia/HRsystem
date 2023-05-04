@@ -4,13 +4,23 @@
 }
 
 
+<div class="d-lg-flex  container m-5  text-center">
 
-<li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-page="/Ui/SuperAdminInfo">SuperAdminInfoUi</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-page="/Ui/PersonInfo">PersonInfo</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-page="/Ui/AdminInfo">AdminInfoUi</a>
-</li>
+    <div class=" me-5">
+    <a class="text-light mt-5   p-5  btn btn-primary "  asp-page="/Ui/SuperAdminInfo">SuperAdminInfoUi</a>
+        <p class="display-6">超级管理员</p>
+    </div>
+
+    <div class="me-5">
+    <a class="text-light mt-5  p-5 btn btn-primary " asp-page="/Ui/AdminInfo">AdminInfoUi</a>
+        <p class="display-6">部门管理员</p>
+    </div>
+
+    <div class="me-5 ">
+    <a class="text-light mt-5 p-5 btn btn-primary "  asp-page="/Ui/PersonInfo">PersonInfo</a>
+        <p class="display-6">员工</p>
+    </div>
+
+
+</div>
+

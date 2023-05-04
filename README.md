@@ -6,6 +6,8 @@
 
 [0] Create a user with account
 
+[0] Multiple Authorization
+
 use accountinfo
 
 	add RememenberMe to module
