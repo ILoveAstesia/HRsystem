@@ -1,18 +1,19 @@
 # Todo
 
-[√] Page index To Login ui
+[+] Page index To Login ui
 
-[√] Rememenberme
+[+] Rememenberme
 
-[0] Create a user with account
+[+] warning solve
 
-[0] Multiple Authorization
+[+] check null before enter personbasicinfo ui
 
-[√] warning solve
+[-] Create a user with account
 
-[0] create department before person creation
+[-] Multiple Authorization
 
-[√] check null before enter personbasicinfo ui
+[-] create principle before PaR info creation
+
 
 use accountinfo
 
