@@ -1,6 +1,7 @@
 ﻿@page
 @model HRsystem.Pages.Account.LoginModel
 @{
+    ViewData["Title"] = "Login Page";
 }
 <section class=" p-5 bg-light ">
 
@@ -28,14 +29,19 @@
         }
         <br />
 
-        <input type="checkbox" value="true" asp-for="rememberMe" /> 记住我
+        <input type="checkbox" value="true" class="" asp-for="rememberMe" /> 记住我
         <br />
         <div class="text-center ">
 
-        <button type="submit" class=" btn  btn-primary btn-lg  ">登录</button>
+        <button type="submit" class=" btn  btn-primary btn-lg w-50 ">Login Now!</button>
 
         </div>
     </form>
+    <div class="text-secondary display-6 m-5">
+
+            Do not Have any Account?     <a class=" btn btn-lg btn-warning text-light m-1" asp-area="" asp-page="/Account/Register">Register</a> Now!
+    </div>
+
 </div>
 
 </section>
