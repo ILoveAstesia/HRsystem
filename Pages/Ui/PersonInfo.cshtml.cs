@@ -30,20 +30,27 @@ namespace HRsystem.Pages.Ui
         //find personbasicinfo from coocike nameidentifier
         public async Task<IActionResult> OnGetAsync(/*int id*/)
         {
-            if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value == null)
-            {
-                ErrorMassage = "NameIdentifier is null Please Login in";
-                return Redirect("/Home/Index");;
-            }
 
-            AuthorityMassage= "ID: "+User.FindFirst(ClaimTypes.NameIdentifier)?.Value+" Authority: "+User.FindFirst("Authority")?.Value;
+
+if(User.FindFirst(ClaimTypes.NameIdentifier)?.Value==null){
+
+                return Redirect("/Account/Login");
+}
+
+            string ?sId=User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            AuthorityMassage= "ID: "+sId+" Authority: "+User.FindFirst("Authority")?.Value;
 
 // if(User.FindFirst(ClaimTypes.NameIdentifier)!=null){
 //     RedirectToPage("~/Account/Login.cshtml");
 // }
 
-            int id = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 
+            bool _try = int.TryParse(sId,out int id);
+if(!_try){
+    TempData["Error"] = "TryParse(sId,out int id) faild";
+    return Redirect("/Index");
+}
             var personbasicinfo = await _context.PersonBasicInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);
 
@@ -54,15 +61,17 @@ if(personbasicinfo==null){
 
             var salaryinfo = await _context.SalaryInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);
-
+if(salaryinfo==null){
+    TempData["Error"] = "salaryinfo Is Null Please Update!";
+    return Redirect("/Index");
+}
             var departmentinfo = await _context.DepartmentInfo.FirstOrDefaultAsync(m => m.Id == personbasicinfo.DepartmentId);
-
+if(departmentinfo==null){
+    TempData["Error"] = "departmentinfo Is Null Please Update!";
+    return Redirect("/Index");
+}
             /*
             */
-            if (personbasicinfo == null || _context.PersonBasicInfo == null)
-            {
-                return NotFound();
-            }
 
             PersonBasicInfo = personbasicinfo;
             SalaryInfo      = salaryinfo;
