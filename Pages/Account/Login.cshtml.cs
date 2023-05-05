@@ -30,7 +30,7 @@ namespace HRsystem.Pages.Account
         //public LoginModel LoginData { get; set; }
 
         [TempData]
-        public string StatusMessage { get; set; }
+        public string? StatusMessage { get; set; }
 
         public void OnGet()
         {
