@@ -8,7 +8,7 @@
 
 [0] Multiple Authorization
 
-[0] warning solve
+[√] warning solve
 
 [0] create department before person creation
 

@@ -7,96 +7,97 @@
 
 
 
-    @if (TempData["Error"] != null)
+@if (TempData["Error"] != null)
 {
-<section class="bg-warning text-danger display-1 ">
-    <div class="">
-        <div class="m-5">
-            @TempData["Error"]
+    <section class="bg-warning text-danger display-1 ">
+        <div class="">
+            <div class="m-5">
+                @TempData["Error"]
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 }
-else{
+else
+{
 
 
-<section class="bg-light p-3">
+    <section class="bg-light p-3">
 
 
- <div class="text-center text-dark">
-    <h1 class="display-1 py-5">欢迎来到<span class="text-warning">企业人力资源管理系统</span></h1>
-   </div>
+        <div class="text-center text-dark">
+            <h1 class="display-1 py-5">欢迎来到<span class="text-warning">企业人力资源管理系统</span></h1>
+        </div>
 
-<div class="container text-center text-sm-start">
+        <div class="container text-center text-sm-start">
 
-    蕉砍虚深月颈灼恰缆稿尔骄拜志辑，史赫谊朗乔章冠振烃柴椰郑款恢铭石拆推斑阀晃馏渐乙车铲戴宙奔誓挤丈畜兄归萧坛现郡、氨塞楚粘纷能肥痢棚五户颚秆嚼意冯、抄瞅卫数熄教辣薯徐定睾具始受崭狮室鲜胡陷迅胞沾钠侯员柬裸哟鸡能贡饶绸衫机菱创佣综劈库逻伐浸拨翼傍尿磅萘姜挖邓篇叶馆聚理博样怒石珊鼎筒莲绩蚌喂盏挨镰有尔鹏氮量煎啃新宾崭路妄治小帮蕉笼肤涌案色滞甘考赞衔展动贩析私芬坏额胸硕祝霜嗯酶惧像爽骄镇坚戏邻览蒲受旋场凸！
-    
-    </div>
+            蕉砍虚深月颈灼恰缆稿尔骄拜志辑，史赫谊朗乔章冠振烃柴椰郑款恢铭石拆推斑阀晃馏渐乙车铲戴宙奔誓挤丈畜兄归萧坛现郡、氨塞楚粘纷能肥痢棚五户颚秆嚼意冯、抄瞅卫数熄教辣薯徐定睾具始受崭狮室鲜胡陷迅胞沾钠侯员柬裸哟鸡能贡饶绸衫机菱创佣综劈库逻伐浸拨翼傍尿磅萘姜挖邓篇叶馆聚理博样怒石珊鼎筒莲绩蚌喂盏挨镰有尔鹏氮量煎啃新宾崭路妄治小帮蕉笼肤涌案色滞甘考赞衔展动贩析私芬坏额胸硕祝霜嗯酶惧像爽骄镇坚戏邻览蒲受旋场凸！
 
-</section>
+        </div>
 
-<section class="p-5  text-dark bg-none">
-    <div class="container " >
-        <div class="d-flex text-center text-sm-start">
+    </section>
 
-            <div class="" ><!--display flex-->
-                <h1>如果没有登录系统，请先 <span class="text-primary">登录</span>系统 </h1>
-                <p class=" my-4">当你想要使用对应系统时，你需要登录对应的账号。</p>
-                <a asp-page="./Account/Login" class="btn btn-primary btn-lg ">跳转到登录界面</a>
+    <section class="p-5  text-dark bg-none">
+        <div class="container ">
+            <div class="d-flex text-center text-sm-start">
+
+                <div class=""><!--display flex-->
+                    <h1>如果没有登录系统，请先 <span class="text-primary">登录</span>系统 </h1>
+                    <p class=" my-4">当你想要使用对应系统时，你需要登录对应的账号。</p>
+                    <a asp-page="./Account/Login" class="btn btn-primary btn-lg ">跳转到登录界面</a>
+                </div>
+
+                <img src="~/img/showcase.svg" class=" ms-5 w-50 d-none d-lg-block" alt="">
             </div>
-
-        <img src="~/img/showcase.svg" class=" ms-5 w-50 d-none d-lg-block" alt="">
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="container">
+    <section>
+        <div class="container">
 
-    </div>
-</section>
+        </div>
+    </section>
 
-<!--
-<div class="container text-center g-0 py-4 py-5 border border-5 ">
-    container
-    <div class="row my-5 ">
-        
-        <div class="col border ">
-            
-            <div class="container-fluid border">
-                <h1 class="display-1">Banner...</h1>
+    <!--
+    <div class="container text-center g-0 py-4 py-5 border border-5 ">
+        container
+        <div class="row my-5 ">
+
+            <div class="col border ">
+
+                <div class="container-fluid border">
+                    <h1 class="display-1">Banner...</h1>
+                </div>
+                Column 1
             </div>
-            Column 1
-        </div>
-        <div class="col border ">
-            Column 2
-        </div>
-        <div class="col border ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-        </div>
-    </div>
-
-    <div class="row my-5 ">
-        row
-        <div class="col border ">
-            <div class="container-fluid border">
-                <h1 class="display-1">Banner...</h1>
+            <div class="col border ">
+                Column 2
             </div>
-            Column 1
-        </div>
-        <div class="col border ">
-            Column 2
-        </div>
-        <div class="col border ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div class="col border ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+            </div>
         </div>
+
+        <div class="row my-5 ">
+            row
+            <div class="col border ">
+                <div class="container-fluid border">
+                    <h1 class="display-1">Banner...</h1>
+                </div>
+                Column 1
+            </div>
+            <div class="col border ">
+                Column 2
+            </div>
+            <div class="col border ">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            </div>
+        </div>
+
     </div>
 
-</div>
+    <div class="border p-5 my-5"><h1>H</h1></div>
 
-<div class="border p-5 my-5"><h1>H</h1></div>
-
-    -->
+        -->
 }

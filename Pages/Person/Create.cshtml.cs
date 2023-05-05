@@ -26,13 +26,25 @@ namespace HRsystem.Pages.AdminPersonUi
 
         [BindProperty]
         public PersonBasicInfo PersonBasicInfo { get; set; } = default!;
-        
+        //public DepartmentInfo DepartmentInfo { get; set; } = default!;
+        //public IList<DepartmentInfo> DepartmentInfoSet { get;set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.PersonBasicInfo == null || PersonBasicInfo == null)
+
+          if (!ModelState.IsValid || _context.PersonBasicInfo == null || PersonBasicInfo == null  )
             {
+                TempData["Error"]="System PersonBasicInfo table is null";
+                return Page();
+            }
+
+            int inputId=PersonBasicInfo.DepartmentId;
+
+            bool exists = _context.DepartmentInfo.Any(d => d.Id == inputId);
+
+            if(!exists){
+                TempData["Error"]="No Such DepartmentId: "+inputId;
                 return Page();
             }
 

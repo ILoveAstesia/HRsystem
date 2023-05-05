@@ -26,56 +26,61 @@ namespace HRsystem.Pages.Ui
         public DepartmentInfo DepartmentInfo { get; set; } = default!;
         public IList<RewardingAndPunishmentInfo> RewardingAndPunishmentInfo { get; set; } = default!;
         public IList<TrainingInfo> TrainingInfo { get; set; } = default!;
-        
+
         //find personbasicinfo from coocike nameidentifier
         public async Task<IActionResult> OnGetAsync(/*int id*/)
         {
 
 
-if(User.FindFirst(ClaimTypes.NameIdentifier)?.Value==null){
+            if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value == null)
+            {
 
                 return Redirect("/Account/Login");
-}
+            }
 
-            string ?sId=User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            string? sId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            AuthorityMassage= "ID: "+sId+" Authority: "+User.FindFirst("Authority")?.Value;
+            AuthorityMassage = "ID: " + sId + " Authority: " + User.FindFirst("Authority")?.Value;
 
-// if(User.FindFirst(ClaimTypes.NameIdentifier)!=null){
-//     RedirectToPage("~/Account/Login.cshtml");
-// }
+            // if(User.FindFirst(ClaimTypes.NameIdentifier)!=null){
+            //     RedirectToPage("~/Account/Login.cshtml");
+            // }
 
 
-            bool _try = int.TryParse(sId,out int id);
-if(!_try){
-    TempData["Error"] = "TryParse(sId,out int id) faild";
-    return Redirect("/Index");
-}
+            bool _try = int.TryParse(sId, out int id);
+            if (!_try)
+            {
+                TempData["Error"] = "TryParse(sId,out int id) faild";
+                return Redirect("/Index");
+            }
             var personbasicinfo = await _context.PersonBasicInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);
 
-if(personbasicinfo==null){
-    TempData["Error"] = "PersonBasicInfo Is Null Please Update!";
-    return Redirect("/Index");
-}
+            if (personbasicinfo == null)
+            {
+                TempData["Error"] = "PersonBasicInfo Is Null Please Update!";
+                return Redirect("/Index");
+            }
 
             var salaryinfo = await _context.SalaryInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);
-if(salaryinfo==null){
-    TempData["Error"] = "salaryinfo Is Null Please Update!";
-    return Redirect("/Index");
-}
+            if (salaryinfo == null)
+            {
+                TempData["Error"] = "salaryinfo Is Null Please Update!";
+                return Redirect("/Index");
+            }
             var departmentinfo = await _context.DepartmentInfo.FirstOrDefaultAsync(m => m.Id == personbasicinfo.DepartmentId);
-if(departmentinfo==null){
-    TempData["Error"] = "departmentinfo Is Null Please Update!";
-    return Redirect("/Index");
-}
+            if (departmentinfo == null)
+            {
+                TempData["Error"] = "departmentinfo Is Null Please Update!";
+                return Redirect("/Index");
+            }
             /*
             */
 
             PersonBasicInfo = personbasicinfo;
-            SalaryInfo      = salaryinfo;
-            DepartmentInfo  = departmentinfo;
+            SalaryInfo = salaryinfo;
+            DepartmentInfo = departmentinfo;
 
             if (_context.RewardingAndPunishmentInfo != null)
             {
