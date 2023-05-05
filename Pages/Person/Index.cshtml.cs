@@ -40,9 +40,12 @@ namespace HRsystem.Pages.Person
             }
 
             */
-            IQueryable<int> genreQuery = from m in _context.PersonBasicInfo
-                                            orderby m.Department.Id
-                                            select m.Department.Id;
+
+            //if personbasicinfo is null
+            //if 
+            IQueryable<int> genreQuery = from m in _context.DepartmentInfo 
+                                            orderby m.Id
+                                            select m.Id;
 
             var person = from m in _context.PersonBasicInfo
                          select m;
