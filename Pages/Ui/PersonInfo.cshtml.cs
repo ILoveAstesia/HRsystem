@@ -48,6 +48,7 @@ namespace HRsystem.Pages.Ui
                                                 .FirstOrDefaultAsync(m => m.Id == id);
 
 if(personbasicinfo==null){
+    TempData["Error"] = "PersonBasicInfo Is Null Please Update!";
     return Redirect("/Index");
 }
 

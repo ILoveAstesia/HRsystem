@@ -31,18 +31,6 @@ namespace HRsystem.Pages.Person
         public int? InputId { get; set; }
         public async Task OnGetAsync()
         {
-            // Use LINQ to get list of Departments.
-            /*
-             
-            if (m.Department==null)
-            {
-                return page();
-            }
-
-            */
-
-            //if personbasicinfo is null
-            //if 
             IQueryable<int> genreQuery = from m in _context.DepartmentInfo 
                                             orderby m.Id
                                             select m.Id;
