@@ -33,14 +33,23 @@ namespace HRsystem.Pages.Ui
             if (User.FindFirst(ClaimTypes.NameIdentifier)?.Value == null)
             {
                 ErrorMassage = "NameIdentifier is null Please Login in";
-                return Page();
+                return Redirect("/Home/Index");;
             }
 
             AuthorityMassage= "ID: "+User.FindFirst(ClaimTypes.NameIdentifier)?.Value+" Authority: "+User.FindFirst("Authority")?.Value;
 
+// if(User.FindFirst(ClaimTypes.NameIdentifier)!=null){
+//     RedirectToPage("~/Account/Login.cshtml");
+// }
+
             int id = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+
             var personbasicinfo = await _context.PersonBasicInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);
+
+if(personbasicinfo==null){
+    return Redirect("/Index");
+}
 
             var salaryinfo = await _context.SalaryInfo
                                                 .FirstOrDefaultAsync(m => m.Id == id);

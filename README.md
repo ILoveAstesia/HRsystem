@@ -8,6 +8,12 @@
 
 [0] Multiple Authorization
 
+[0] warning solve
+
+[0] create department before person creation
+
+[0] check null before enter personbasicinfo ui
+
 use accountinfo
 
 	add RememenberMe to module
