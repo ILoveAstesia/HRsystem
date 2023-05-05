@@ -5,11 +5,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>SalaryInfo</h1>
-<h2>@Model.Infomation</h2>
+<h1 class="text-primary">SalaryInfo</h1>
+<h4 class="text-warning">@Model.Infomation</h4>
+<section>
+<div class="container bg-light p-3">
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-lg btn-primary">Create New</a>
 </p>
+    
 <table class="table">
     <thead>
         <tr>
@@ -46,3 +49,6 @@
 }
     </tbody>
 </table>
+
+</div>
+</section>

@@ -40,7 +40,7 @@ namespace HRsystem.Pages.Account
              */
 
 
-            Infomation = "userId:" + User.FindFirst(ClaimTypes.NameIdentifier)?.Value + " Authority:" + User.FindFirst("Authority")?.Value; ;
+            Infomation = "UserId:" + User.FindFirst(ClaimTypes.NameIdentifier)?.Value + " Authority:" + User.FindFirst("Authority")?.Value; ;
 
             if (_context.AccountInfo != null)
             {
