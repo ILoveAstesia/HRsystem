@@ -18,6 +18,10 @@
 
 [-] automatically show filted view of spcific department to department mananger admin
 
+[-] change ef frame work css and layout to fit my project and reduce work time.
+
+[-] dotnet publish
+
 use accountinfo
 
 	add RememenberMe to module
