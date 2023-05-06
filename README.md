@@ -14,6 +14,9 @@
 
 [-] create principle before PaR info creation
 
+[-] radio button (multi check) when data operation
+
+[-] automatically show filted view of spcific department to department mananger admin
 
 use accountinfo
 
